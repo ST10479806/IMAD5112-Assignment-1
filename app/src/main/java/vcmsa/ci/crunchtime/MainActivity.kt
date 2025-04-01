@@ -24,34 +24,37 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
        val edtDay = findViewById<EditText>(R.id.edtDay)
-        var txtMeal = findViewById<TextView>(R.id.txtMeal)
+        val txtMeal = findViewById<TextView>(R.id.txtMeal)
         val btnReset = findViewById<Button>(R.id.btnReset)
         val btnSuggestion = findViewById<Button>(R.id.btnSuggestion)
 
         btnSuggestion.setOnClickListener {
             val input = edtDay.text.toString().trim().lowercase()
             var foodOfDay = "Empty"
-            var txtMeal = edtDay.text.toString()
-            btnSuggestion {
 
-                if (txtMeal == "morning") {
+            //val txtMeal = edtDay.text.toString()
+           // btnSuggestion {
+
+                if (input  == "morning") {
                     foodOfDay = "oats"
-                } else if ( txtMeal =="mid-morning") {
+                } else if ( input =="mid-morning") {
                     foodOfDay = "fruit"
-                } else if (txtMeal == "afternoon"){
+                } else if (input == "afternoon"){
                     foodOfDay = " burger with chips"
-                } else if (txtMeal == "mid-afternoon") {
+                } else if (input == "mid-afternoon") {
                     foodOfDay = "biscuit and yogurt"
-                } else if (txtMeal == "Dinner") {
+                } else if (input == "Dinner") {
                     foodOfDay = "rice with beef stew"
-                } else if ( txtMeal == "dessert") {
+                } else if ( input == "dessert") {
                     foodOfDay = "ice cream with cake"
                 }
-                txtMeal.text.also { foodOfDay = it.toString() }
-            }
+                txtMeal.text = foodOfDay
+                //txtMeal.text.also { foodOfDay = it.toString() }
+           // }
         }
         btnReset.setOnClickListener {
-            txtMeal.text.clear()
+            edtDay.text.clear()
+            txtMeal.text =""
         }
 
 
